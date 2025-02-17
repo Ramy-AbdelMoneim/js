@@ -23,16 +23,20 @@ formsubmit.onsubmit=function(event)
         {
             if(Mail==i && Password==usersdata[i].Password)
             {
-                console.log("Login Successful")
+                // console.log("Login Successful")
                 document.cookie=`usrname=${usersdata[i].username}`
                 login=true;
-                alert("Login Successful")
+                break;
             }
         }
         if(login==false)
         {
-            event.preventDefault();
             alert("Invalid Email or Password")
+        }
+        else
+        {
+            alert("Login Successful")
+            formsubmit.submit();
         }
     
         
