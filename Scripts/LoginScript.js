@@ -1,8 +1,9 @@
 
 
-let LoginButton=document.getElementById("Login");
-LoginButton.onclick=function()
+let formsubmit=document.forms[0];
+formsubmit.onsubmit=function(event)
 {
+    event.preventDefault();
     let Mail=document.getElementById("InputEmail").value;
     let Password=document.getElementById("InputPassword").value;
     fetch("../JSON/users.json").then(function(response)
@@ -30,6 +31,7 @@ LoginButton.onclick=function()
         }
         if(login==false)
         {
+            event.preventDefault();
             alert("Invalid Email or Password")
         }
     
